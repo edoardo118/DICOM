@@ -15,4 +15,4 @@ steps:
   - --machine-type=n1-standard-1
   - --boot-disk-size=100GB
   - --scopes=https://www.googleapis.com/auth/cloud-platform
-  - --metadata="install-nvidia-driver=True"
+  - --metadata=install-nvidia-driver=True
