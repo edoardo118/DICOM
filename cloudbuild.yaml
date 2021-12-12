@@ -17,7 +17,7 @@ steps:
   - --machine-type=n1-standard-1
   - --boot-disk-size=200GB
   - --scopes=https://www.googleapis.com/auth/cloud-platform
-  - --metadata=install-nvidia-driver=True,input_notebook=gs://pytorch-notebookbackup/DICOM-kaggle.ipynb
+  - --metadata=install-nvidia-driver=True
 
 # #1 copy of data from repo
 # - name: 'gcr.io/cloud-builders/gcloud'
