@@ -17,13 +17,13 @@ steps:
   - --machine-type=n1-standard-1
   - --boot-disk-size=200GB
   - --scopes=https://www.googleapis.com/auth/cloud-platform
-  - --metadata=install-nvidia-driver=True
+  - --metadata=install-nvidia-driver=True,input_notebook=gs://pytorch-notebookbackup/DICOM-kaggle.ipynb
 
-#1 copy of data from repo
-- name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash'
-  args:
-  - '-c'
-  - |
-    gcloud compute scp ./** edoardoprato@pytorch-notebook:~/ \
-    --zone=europe-west3-b --recurse 
+# #1 copy of data from repo
+# - name: 'gcr.io/cloud-builders/gcloud'
+#   entrypoint: 'bash'
+#   args:
+#   - '-c'
+#   - |
+#     gcloud compute scp ./** edoardoprato@pytorch-notebook:~/ \
+#     --zone=europe-west3-b --recurse 
