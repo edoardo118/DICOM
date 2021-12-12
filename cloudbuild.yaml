@@ -1,4 +1,6 @@
 steps:
+
+
 #1 VM create
 - name: 'gcr.io/cloud-builders/gcloud'
   id: nb1
@@ -13,6 +15,15 @@ steps:
   - --maintenance-policy=TERMINATE
   - --accelerator=count=1,type=nvidia-tesla-t4
   - --machine-type=n1-standard-1
-  - --boot-disk-size=100GB
+  - --boot-disk-size=200GB
   - --scopes=https://www.googleapis.com/auth/cloud-platform
   - --metadata=install-nvidia-driver=True
+
+#1 copy of data from repo
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    gcloud compute scp ./** edoardoprato@pytorch-notebook:~/ \
+    --zone=europe-west3-b --recurse 
