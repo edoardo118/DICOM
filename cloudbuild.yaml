@@ -1,0 +1,15 @@
+steps:
+#1 VM create
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    gcloud beta notebooks instances create pytorch-notebook \
+    --vm-image-project=deeplearning-platform-release \
+    --vm-image-family=pytorch-1-10-cu110-notebooks \
+    --machine-type=n1-standard-1 \
+    --accelerator-type=NVIDIA_TESLA_T4 \
+    --accelerator-core-count=1 \
+    --install-gpu-driver \
+    --location=europe-west3-b 
